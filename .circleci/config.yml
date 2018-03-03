@@ -7,11 +7,6 @@ jobs:
         steps:
             - checkout
             - setup_remote_docker
-            - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-            - run: docker build -t ${OWNER}/${IMAGE_NAME}:${CIRCLE_BLANCH} .
-            - run: docker push -t ${OWNER}/${IMAGE_NAME}:${CIRCLE_BLANCH}
-    push:
-        working_directory: /work
-        docker:
-            - image: docker:18.02.0-ce-git
-        steps:
+            - run: docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+            - run: docker build -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BLANCH} .
+            - run: docker push -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BLANCH}
