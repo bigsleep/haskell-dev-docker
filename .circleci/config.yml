@@ -9,5 +9,5 @@ jobs:
             - checkout
             - setup_remote_docker
             - run: docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-            - run: docker build -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BLANCH} .
-            - run: docker push -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BLANCH}
+            - run: docker build -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} .
+            - run: docker push -t ${DOCKER_USER}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH}
